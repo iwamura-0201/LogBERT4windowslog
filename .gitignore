@@ -1,0 +1,17 @@
+dataset
+eventid_content
+embedded
+data
+scores
+.venv
+*.zip
+output/*
+outputs/*
+archive/*
+
+# Pythonが生成するキャッシュや一時ファイル
+*/__pycache__/*
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
