@@ -1,7 +1,6 @@
-# LAD (Log Anomary Detection)
+# LogBERT4windowslog
 
-uv使います。
-
+LogBERTをWindowsイベントログ用に改変したもの
 
 ## 環境構築
 ```bash
@@ -9,38 +8,10 @@ uv使います。
 uv sync
 # 仮想環境の起動
 source .venv/bin/activate
+# 関連パッケージの追加
+uv add -r requirements.txt
 ```
 
-## 実行
-基本的にbashを使用する。
-実行環境やデータの保存場所が大幅に変更されている。
-
-現状では網屋データセット(?)をLogBERTで学習させる以下のコードが動作:
-
-### 訓練
-```bash 
-bash src/parallel_bash/parallel13_recovered.sh
-```
-
-### テスト
-```bash
-bash src/parallel_bash/test2_single.sh
-```
-
-他のデータや前処理なども行う場合は、上記スクリプトに対応させる形で記述する。
-
-## メモ
-pythonのバージョンは3.11にする必要がある
-
-```bash
-uv python install 3.11
-# .python-versionを3.11にする
-```
-
-データセットはシンボリックリンクを作成しよう。
-```bash
-# リカバリー版で確認
-ln -s /home/local/amiya/dataset/ ./dataset
-# 過去の重みを使うなら スクリプトは絶対パスから相対パスにしよう
-ln -s /home/local/amiya/ ./amiya
-```
+## 動作方法
+- 基本的なものは src/recover.ipynb に記述
+- 実験は基本的に main.py から動かしていたので、こちらも適宜参照  (ファイル名等若干変更しているので、そのままでは動かないかも)
